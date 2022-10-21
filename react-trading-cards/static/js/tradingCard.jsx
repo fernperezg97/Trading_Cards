@@ -34,7 +34,7 @@ const tradingCardData = [
   {
     name: "Polymorphism",
     skill: "costumes",
-    imgUrl: "/static/img/polymorphism.jpeg",
+    imgUrl: "/static/img/fluffy.jpeg",
     cardId: 6,
   },
   {
@@ -49,16 +49,13 @@ const tradingCardData = [
     imgUrl: "/static/img/merge.png",
     cardId: 8,
   },
+  {
+    name: "Pinky",
+    skill: "being super cute",
+    imgUrl: "/static/img/pinky.png",
+    cardId: 9,
+  },
 ];
-
-
-// const tradingCardData = [
-//   {
-//     name: 'Balloonicorn',
-//     skill: 'video games',
-//     imgUrl: '/static/img/balloonicorn.jpg',
-//   },
-// ];
 
 function TradingCard(props) {
   return (
@@ -70,27 +67,49 @@ function TradingCard(props) {
   );
 }
 
+function TradingCardContainer(props) {
+  const paragraphs = [];
+
+  for (const currentCard of tradingCardData) {
+    paragraphs.push(
+      <TradingCard
+      name={currentCard.name}
+      skill={currentCard.skill}
+      imgUrl={currentCard.imgUrl}
+    />
+    );
+  }
+
+  return (
+    <React.Fragment>
+      {paragraphs}
+    </React.Fragment>
+  );
+}
+
+ReactDOM.render(<TradingCardContainer />, document.querySelector("#all-cards"));
+
 ReactDOM.render(
   <TradingCard name="Balloonicorn" skill="video games" imgUrl="/static/img/balloonicorn.jpg" />,
   document.querySelector('#balloonicorn'),
 );
 
-ReactDOM.render(
-  <TradingCard name="Float" skill="baking pretzels" imgUrl="/static/img/float.jpg" />,
-  document.querySelector('#float'),
-);
+// ReactDOM.render(
+//   <TradingCard name="Float" skill="baking pretzels" imgUrl="/static/img/float.jpg" />,
+//   document.querySelector('#float'),
+// );
 
-ReactDOM.render(
-  <TradingCard name="Llambda" skill="knitting scarves" imgUrl="/static/img/llambda.jpg" />,
-  document.querySelector('#llambda'),
-);
+// ReactDOM.render(
+//   <TradingCard name="Llambda" skill="knitting scarves" imgUrl="/static/img/llambda.jpg" />,
+//   document.querySelector('#llambda'),
+// );
 
-ReactDOM.render(
-  <TradingCard name="Fluffy" skill="being the fluffiest animal" imgUrl="/static/img/polymorphism.jpeg" />,
-  document.querySelector('#Fluffy'),
-);
+// ReactDOM.render(
+//   <TradingCard name="Fluffy" skill="being the fluffiest animal" imgUrl="/static/img/fluffy.jpeg" />,
+//   document.querySelector('#Fluffy'),
+// );
 
-ReactDOM.render(
-  <TradingCard name="Pinky" skill="being super cute" imgUrl="/static/img/placeholder.png" />,
-  document.querySelector('#Pinky'),
-);
+// ReactDOM.render(
+//   <TradingCard name="Pinky" skill="being super cute" imgUrl="/static/img/pinky.png" />,
+//   document.querySelector('#Pinky'),
+// );
